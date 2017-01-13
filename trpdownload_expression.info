@@ -1,0 +1,6 @@
+name = Tripal Download Expression 
+description = Uses the Tripal Download API to download a feature's expression data 
+core = 7.x
+package = Tripal Extensions
+dependencies[] = tripal_core
+dependencies[] = trpdownload_api
