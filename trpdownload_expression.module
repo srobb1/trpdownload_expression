@@ -81,9 +81,9 @@ function trpdownload_expression_csv_generate_file($variables, $job_id = NULL) {
       INNER JOIN {assay_biomaterial} AB ON AB.assay_id = A.assay_id
       INNER JOIN {biomaterial} B ON B.biomaterial_id = AB.biomaterial_id
     WHERE
-      F.feature_id = :feature_id";
+      F.feature_id in ( $feature_id )";
 
-   $expressions = chado_query($query, array(":feature_id" => $feature_id));
+   $expressions = chado_query($query);
 
   // for tracking progress.
   $count_query = preg_replace('/SELECT.*FROM/s', 'SELECT count(*) as num_lines FROM', $query);
